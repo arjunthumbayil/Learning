@@ -1,11 +1,7 @@
 import React from "react"
-import ReactDOM from "react-dom" 
+import ReactDOM from "react-dom/client" 
 
-const reactHeading = React.createElement(
-  'h1',
-  { id: 'heading' },
-  'Hello From React'
-)
+
 
 const parent = React.createElement(
   'div',
@@ -21,7 +17,6 @@ const parent = React.createElement(
   )
 ])
 
-const reactRoot = ReactDOM.createRoot(document.getElementById('root3'))
-reactRoot.render(parent)
+const root = ReactDOM.createRoot(document.getElementById('root'))
+root.render(parent)
 
-console.log('arjun', parent)
