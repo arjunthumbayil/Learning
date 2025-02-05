@@ -5,26 +5,20 @@ import ReactDOM from 'react-dom/client'
 //When we render this element onto the DOM, ReactDOM CONVERTS this object to HTML
 //and pushes it to browser i.e REPLACES everithing inside the root.
 
-const heading = React.createElement(
-  'h1',
-  { id: 'heading' },
-  'Hi from React & Parcel!'
-)
-
 //JSX - is not HTML in JS
 //It is at max HTML or XML like syntax
 
-const jsxHeading = <h1 id="heading">Hello React using JSX</h1>
+//So it's like React.createElement => ReactElement-JS Object => HTMLElement(render)
+//JSX is transpiled before it reaches the JS Engine. Parcel - Babel.
 
-console.log("jsx" + jsxHeading)
-console.log("react" + heading)
+//JSX => Babel transpiles it to React.createElement => ReactElement-JS Object => HTMLElement(render)
+
+const jsxHeading = (
+  <h1 className="head" id="heading">
+    Hello React using JSX
+  </h1>
+)
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(jsxHeading)
-
-// So it's like React.createElement => ReactElement-JS Object => HTMLElement(render)
-
-//JSX is transpiled before it reaches the JS Engine
-
-// JSX => React.createElement => ReactElement-JS Object => HTMLElement(render)
