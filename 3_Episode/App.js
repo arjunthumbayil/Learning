@@ -22,3 +22,9 @@ console.log("react" + heading)
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(jsxHeading)
+
+// So it's like React.createElement => ReactElement-JS Object => HTMLElement(render)
+
+//JSX is transpiled before it reaches the JS Engine
+
+// JSX => React.createElement => ReactElement-JS Object => HTMLElement(render)
