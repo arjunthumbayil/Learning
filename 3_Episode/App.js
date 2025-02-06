@@ -1,18 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-const heading = (
+const Title = () => (
   <h1 className="head" id="heading">
-    Hello React using JSX
+    Hello from Title Component
   </h1>
 )
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-//React Functional Component - is a normal JS Function which returns some JSX
-
+//Component Composition
 const HeadingComponent = () => {
-  return <h1>Hello from React Functional Component</h1>
+  return (
+    <div className="body">
+      <Title />
+      <h1>Hello from React Functional Component</h1>
+    </div>
+  )
 }
 
-root.render(heading)
+root.render(<HeadingComponent />)
