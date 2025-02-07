@@ -23,12 +23,13 @@
   padding: 5px;
   margin: 5px;
   width: 200px;
-  height: 500px;
   background-color: #f0f0f0;
 }
 
 .res-container {
   display: flex;
+  justify-content: space-between;
+
   flex-wrap: wrap;
 }
 

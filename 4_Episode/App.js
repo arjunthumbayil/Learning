@@ -15,7 +15,7 @@ Footer
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-const resObj = [
+const resList = [
   {
     info: {
       id: '74444',
@@ -1136,18 +1136,20 @@ const resObj = [
 
 const RestrauntCard = (props) => {
   const { resData } = props
+  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
+    resData?.info
   return (
     <div className="res-card">
       <img
         className="res-logo"
         alt="res-logo"
-        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${resData[0].info.cloudinaryImageId}`}
+        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
       />
-      <h3>{resData[0].info.name}</h3>
-      <h4>{resData[0].info.cuisines.join(', ')}</h4>
-      <h4>{resData[0].info.avgRating} stars</h4>
-      <h4>{resData[0].info.costForTwo}</h4>
-      <h4>{resData[0].info.sla.deliveryTime} minutes</h4>
+      <h3>{name}</h3>
+      <h4>{cuisines.join(', ')}</h4>
+      <h4>{avgRating} stars</h4>
+      <h4>{costForTwo}</h4>
+      <h4>{sla.deliveryTime} minutes</h4>
     </div>
   )
 }
@@ -1157,7 +1159,19 @@ const Body = () => {
     <div className="body">
       <div className="search">Search</div>
       <div className="res-container">
-        <RestrauntCard resData={resObj} />
+        <RestrauntCard resData={resList[0]} />
+        <RestrauntCard resData={resList[1]} />
+        <RestrauntCard resData={resList[2]} />
+        <RestrauntCard resData={resList[3]} />
+        <RestrauntCard resData={resList[4]} />
+        <RestrauntCard resData={resList[5]} />
+        <RestrauntCard resData={resList[6]} />
+        <RestrauntCard resData={resList[7]} />
+        <RestrauntCard resData={resList[8]} />
+        <RestrauntCard resData={resList[9]} />
+        <RestrauntCard resData={resList[10]} />
+        <RestrauntCard resData={resList[11]} />
+        <RestrauntCard resData={resList[12]} />
       </div>
     </div>
   )
