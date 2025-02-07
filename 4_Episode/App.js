@@ -1136,7 +1136,7 @@ const resList = [
 
 const RestrauntCard = (props) => {
   const { resData } = props
-  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
+  const { id, cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
     resData?.info
   return (
     <div className="res-card">
@@ -1159,23 +1159,14 @@ const Body = () => {
     <div className="body">
       <div className="search">Search</div>
       <div className="res-container">
-        <RestrauntCard resData={resList[0]} />
-        <RestrauntCard resData={resList[1]} />
-        <RestrauntCard resData={resList[2]} />
-        <RestrauntCard resData={resList[3]} />
-        <RestrauntCard resData={resList[4]} />
-        <RestrauntCard resData={resList[5]} />
-        <RestrauntCard resData={resList[6]} />
-        <RestrauntCard resData={resList[7]} />
-        <RestrauntCard resData={resList[8]} />
-        <RestrauntCard resData={resList[9]} />
-        <RestrauntCard resData={resList[10]} />
-        <RestrauntCard resData={resList[11]} />
-        <RestrauntCard resData={resList[12]} />
+        {resList.map((restraunt) => {
+          return <RestrauntCard key={restraunt.info.id} resData={restraunt} />
+        })}
       </div>
     </div>
   )
 }
+// not using keys (not acceptable) <<<< index as key <<<<<<<<<<<<<< unique id(best practice)
 
 const Header = () => {
   return (
