@@ -107,11 +107,9 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            const filteredList = listOfRes.filter((res) => {
-              res.info.avgRating > 4
-            })
-
-            console.log(filteredList)
+            const filteredList = listOfRes.filter(
+              (res) => res.info.avgRating > 4
+            )
             setListOfRes(filteredList)
           }}
         >
