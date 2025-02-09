@@ -1,5 +1,6 @@
 import RestaurantCard from './RestaurantCard';
 import { useState, useEffect } from 'react';
+import Shimmer from './Shimmer';
 import { url3 } from '../utils/constants';
 
 const Body = () => {
@@ -19,7 +20,7 @@ const Body = () => {
   };
 
   if (listOfRes.length === 0) {
-    return <h1>Loading...</h1>;
+    return <Shimmer />;
   }
 
   return (
