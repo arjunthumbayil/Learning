@@ -4,7 +4,7 @@ import RestaurantCard from './RestaurantCard';
 import { url3 } from '../utils/constants';
 
 const Body = () => {
-  const [listOfRestaurants, setlistOfRestaurants] = useState([]);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -18,15 +18,17 @@ const Body = () => {
     );
   };
 
-  return listOfRes.length === 0 ? (
-    <Shimmer />
-  ) : (
+  if (listOfRestaurants.length === 0) {
+    return <Shimmer />;
+  }
+
+  return (
     <div className="body">
       <div className="filter">
         <button
           className="filter-btn"
           onClick={() => {
-            const filteredList = listOfRes.filter(
+            const filteredList = listOfRestaurants.filter(
               (res) => res.info.avgRating > 4.3
             );
             setListOfRestaurants(filteredList);
