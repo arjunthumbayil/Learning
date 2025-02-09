@@ -15,7 +15,8 @@ const Body = () => {
     const json = await data.json();
 
     const requiredData =
-      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants;
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
 
     console.log(requiredData);
 
