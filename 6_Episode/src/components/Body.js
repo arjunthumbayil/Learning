@@ -11,17 +11,16 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(url3);
-
     const json = await data.json();
-
     const requiredData =
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
-
-    console.log(requiredData);
-
     setListOfRes(requiredData);
   };
+
+  if (listOfRes.length === 0) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <div className="body">
