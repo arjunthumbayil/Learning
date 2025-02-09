@@ -63,8 +63,7 @@
 }
 
 .login {
-  padding: 0px;
-  margin-right: 15px;
+  padding: 0px 20px;
+  margin-right: 10px;
   cursor: pointer;
-  border-style: hidden;
 }
