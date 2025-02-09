@@ -1,4 +1,4 @@
-import { LOGO_URL } from '../utils/constants'
+import { LOGO_URL } from '../utils/constants';
 
 const Header = () => {
   return (
@@ -12,10 +12,11 @@ const Header = () => {
           <li>About</li>
           <li>Contact</li>
           <li>Cart</li>
+          <button className="login">Login</button>
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
