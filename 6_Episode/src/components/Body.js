@@ -1,10 +1,10 @@
-import RestaurantCard from './RestaurantCard';
 import { useState, useEffect } from 'react';
 import Shimmer from './Shimmer';
+import RestaurantCard from './RestaurantCard';
 import { url3 } from '../utils/constants';
 
 const Body = () => {
-  const [listOfRes, setListOfRes] = useState([]);
+  const [listOfRestaurants, setlistOfRestaurants] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -13,17 +13,14 @@ const Body = () => {
   const fetchData = async () => {
     const data = await fetch(url3);
     const json = await data.json();
-    const requiredData =
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-    setListOfRes(requiredData);
+    setListOfRestaurants(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
-  if (listOfRes.length === 0) {
-    return <Shimmer />;
-  }
-
-  return (
+  return listOfRes.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
         <button
@@ -32,14 +29,14 @@ const Body = () => {
             const filteredList = listOfRes.filter(
               (res) => res.info.avgRating > 4.3
             );
-            setListOfRes(filteredList);
+            setListOfRestaurants(filteredList);
           }}
         >
           Top Rated Restaurant
         </button>
       </div>
       <div className="res-container">
-        {listOfRes.map((restaurant) => {
+        {listOfRestaurants.map((restaurant) => {
           return (
             <RestaurantCard key={restaurant.info.id} resData={restaurant} />
           );
