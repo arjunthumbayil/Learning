@@ -28,7 +28,6 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
-        {/* 🔎 Search */}
         <div className="search">
           <input
             type="text"
@@ -48,34 +47,32 @@ const Body = () => {
           >
             Search
           </button>
+          <button
+            className="filter-btn"
+            onClick={() => {
+              setFilteredRestaurants(allRestaurants);
+              setSearchText('');
+            }}
+          >
+            Reset
+          </button>
         </div>
 
-        {/* ⭐ Top Rated Filter */}
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filtered = allRestaurants.filter(
-              (res) => res.info.avgRating > 4.3
-            );
-            setFilteredRestaurants(filtered);
-          }}
-        >
-          Top Rated Restaurant
-        </button>
-
-        {/* 🔄 Reset Button */}
-        <button
-          className="filter-btn"
-          onClick={() => {
-            setFilteredRestaurants(allRestaurants);
-            setSearchText('');
-          }}
-        >
-          Reset
-        </button>
+        <div>
+          <button
+            className="filter-btn"
+            onClick={() => {
+              const filtered = allRestaurants.filter(
+                (res) => res.info.avgRating > 4.3
+              );
+              setFilteredRestaurants(filtered);
+            }}
+          >
+            Top Rated Restaurant
+          </button>
+        </div>
       </div>
 
-      {/* 🍽️ Restaurant List */}
       <div className="res-container">
         {filteredRestaurants.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
