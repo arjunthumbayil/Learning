@@ -1,7 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import AppLayout from './components/AppLayout'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import AppLayout from './components/AppLayout';
+import About from './components/About';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
+const appRouter = createBrowserRouter([
+  { path: '/', element: <AppLayout /> },
+  { path: '/about', element: <About /> },
+]);
 
-root.render(<AppLayout />)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(<RouterProvider router={appRouter} />);
