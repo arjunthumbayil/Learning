@@ -15,3 +15,7 @@ export const url3 =
 
 export const url4 =
   'https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.2587531&lng=75.78041&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING';
+
+//Alladin
+export const url5 =
+  'https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=11.9415915&lng=79.8083133&restaurantId=1012729&catalog_qa=undefined&query=Shawarma&submitAction=ENTER';
