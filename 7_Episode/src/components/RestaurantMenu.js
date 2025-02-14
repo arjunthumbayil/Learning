@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import Shimmer from './Shimmer';
-import { url5 } from '../utils/constants';
+import { useParams } from 'react-router-dom';
+import { MENU_API } from '../utils/constants';
 
 const RestaurantMenu = () => {
   const [restaurantInfo, setRestaurantInfo] = useState(null);
   const [error, setError] = useState(null); // Add error state
+
+  const { resId } = useParams();
 
   useEffect(() => {
     fetchMenu();
@@ -12,7 +15,7 @@ const RestaurantMenu = () => {
 
   const fetchMenu = async () => {
     try {
-      const response = await fetch(url5);
+      const response = await fetch(MENU_API + resId);
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
