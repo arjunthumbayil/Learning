@@ -4,7 +4,7 @@ import { url5 } from '../utils/constants';
 
 const RestaurantMenu = () => {
   const [restaurantInfo, setRestaurantInfo] = useState(null);
-  const [error, setError] = useState(null); // Add error state
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchMenu();
@@ -19,7 +19,7 @@ const RestaurantMenu = () => {
       const json = await response.json();
       setRestaurantInfo(json);
     } catch (err) {
-      setError(err.message); // Handle errors
+      setError(err.message);
     }
   };
 
@@ -33,17 +33,32 @@ const RestaurantMenu = () => {
     return <div>Error: {error}</div>;
   }
 
-  // Safely access nested data
-  const { name, cuisines } = restaurantInfo.data.cards[2].card.card.info;
+  // Safely access nested data with default values
+  const {
+    name = 'Unknown',
+    cuisines = [],
+    costForTwoMessage = 'N/A',
+  } = restaurantInfo?.data?.cards[2]?.card?.card?.info || {};
+
+  const menuCategoriesArray =
+    restaurantInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards ||
+    [];
+
+  const { title = 'Menu', itemCards = [] } =
+    menuCategoriesArray[1]?.card?.card || {};
 
   return (
     <div className="menu">
       <h1>{name}</h1>
-      <p>{cuisines.join(', ')}</p>
+      <p>
+        {cuisines.join(', ')} - {costForTwoMessage}
+      </p>
+      <h2>{title}</h2>
       <ul>
-        <li>Biryani</li>
-        <li>Burgers</li>
-        <li>Diet Coke</li>
+        {itemCards.map((item) => {
+          const { id, name } = item.card.info; // Destructure id and name from each item
+          return <li key={id}>{name}</li>; // Use id as the key and render the name
+        })}
       </ul>
     </div>
   );
