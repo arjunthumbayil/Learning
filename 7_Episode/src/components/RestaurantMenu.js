@@ -4,7 +4,7 @@ import { url5 } from '../utils/constants';
 
 const RestaurantMenu = () => {
   const [restaurantInfo, setRestaurantInfo] = useState(null);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null); // Add error state
 
   useEffect(() => {
     fetchMenu();
@@ -19,7 +19,7 @@ const RestaurantMenu = () => {
       const json = await response.json();
       setRestaurantInfo(json);
     } catch (err) {
-      setError(err.message);
+      setError(err.message); // Handle errors
     }
   };
 
@@ -33,11 +33,14 @@ const RestaurantMenu = () => {
     return <div>Error: {error}</div>;
   }
 
-  // Safely access nested data with default values
+  // Safely access nested data
   const {
     name = 'Unknown',
     cuisines = [],
+    cloudinaryImageId,
     costForTwoMessage = 'N/A',
+    avgRating,
+    sla,
   } = restaurantInfo?.data?.cards[2]?.card?.card?.info || {};
 
   const menuCategoriesArray =
@@ -53,11 +56,14 @@ const RestaurantMenu = () => {
       <p>
         {cuisines.join(', ')} - {costForTwoMessage}
       </p>
-      <h2>{title}</h2>
       <ul>
         {itemCards.map((item) => {
-          const { id, name } = item.card.info; // Destructure id and name from each item
-          return <li key={id}>{name}</li>; // Use id as the key and render the name
+          const { id, name, price } = item.card.info;
+          return (
+            <li key={id}>
+              {name} - ₹{price / 100}
+            </li>
+          );
         })}
       </ul>
     </div>
