@@ -13,7 +13,7 @@ class userClass extends React.Component {
   render() {
     const { name, location } = this.props;
     const { count } = this.state;
-    console.log('ChildRender');
+    console.log(name + ' ChildRender');
     return (
       <div className="user-card">
         <h2>CountClass: {count}</h2>

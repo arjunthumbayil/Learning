@@ -18,3 +18,22 @@ import Component from "path"
 -Named Export/Import
 export const Component
 import {Component} from "path"
+
+/\*
+
+- Parent Constructor
+- Parent Render
+
+  -First Constructor
+  -First Render
+
+  -Second Constructor
+  -Second Render
+
+  <DOM UPDATED - IN SINGLE BATCH>
+
+  - First ComponentDidMount
+  - Second ComponentDidMount
+
+- Parent ComponentDidMount
+  \*/
