@@ -14,6 +14,11 @@ class userClass extends React.Component {
 
     console.log(json);
   }
+
+  componentDidUpdate() {
+    console.log();
+  }
+
   render() {
     const { name, id, html_url, bio } = this.state.userInfo;
     return (
@@ -27,3 +32,26 @@ class userClass extends React.Component {
 }
 
 export default userClass;
+
+/*
+ * ------MOUNTING LIFE CYCLE------
+ *
+ * Constructor (Dummy Data)
+ * Render (Dummy Data)
+ *        <HTML (with Dummy Data)/>
+ * Component Did Mount is called
+ *        <API call>
+ *        <this.setState> -> State Variable is Updated
+ *
+ *
+ *------UPDATING LIFE CYCLE------
+ *
+ * Render (API Data)
+ *        <HTML (with New API Data)/>
+ * Component Did Update is called
+ *
+ *
+ *
+ *
+ *
+ */
