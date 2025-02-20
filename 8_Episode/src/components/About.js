@@ -15,7 +15,7 @@ class About extends React.Component {
     //console.log('ParentRender');
     return (
       <div>
-        <h1>This is About Class Component!</h1>
+        <h1>This is About Class Based Components</h1>
         <UserClass name={'First'} location={'Kolkata - Class'} />
       </div>
     );
