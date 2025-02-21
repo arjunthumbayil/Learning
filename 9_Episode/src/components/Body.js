@@ -3,6 +3,7 @@ import Shimmer from './Shimmer';
 import RestaurantCard from './RestaurantCard';
 import { url3 } from '../utils/constants';
 import { Link } from 'react-router-dom';
+import useOnlineStatus from '../utils/useOnlineStatus';
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]); // 🔹 Keep original list
@@ -23,6 +24,16 @@ const Body = () => {
     setAllRestaurants(restaurants); // Store original list
     setFilteredRestaurants(restaurants); // Initially, both are the same
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false) {
+    return (
+      <h1>
+        Looks like your're Offline! Please check your Internet connection.
+      </h1>
+    );
+  }
 
   return allRestaurants.length === 0 ? (
     <Shimmer />

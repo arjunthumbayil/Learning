@@ -11,8 +11,6 @@ class userClass extends React.Component {
     const json = await data.json();
 
     this.setState({ userInfo: json });
-
-    console.log(json);
   }
 
   componentDidUpdate() {
@@ -21,6 +19,7 @@ class userClass extends React.Component {
 
   render() {
     const { name, id, html_url, bio } = this.state.userInfo;
+
     return (
       <div className="user-card">
         <h2>Name: {name}</h2>
