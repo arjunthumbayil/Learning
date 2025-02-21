@@ -1,39 +1,15 @@
 import { useEffect, useState } from 'react';
 import Shimmer from './Shimmer';
 import { useParams } from 'react-router-dom';
-import { MENU_API } from '../utils/constants';
+import useRestaurantMenu from '../utils/useRestaurantMenu';
 
 const RestaurantMenu = () => {
-  const [restaurantInfo, setRestaurantInfo] = useState(null);
-  const [error, setError] = useState(null); // Add error state
-
   const { resId } = useParams();
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    try {
-      const response = await fetch(MENU_API + resId);
-      if (!response.ok) {
-        throw new Error('Failed to fetch data');
-      }
-      const json = await response.json();
-      setRestaurantInfo(json);
-    } catch (err) {
-      setError(err.message); // Handle errors
-    }
-  };
-
+  const restaurantInfo = useRestaurantMenu(resId); // hook for data collection
   // Show shimmer while loading
   if (restaurantInfo === null) {
     return <Shimmer />;
-  }
-
-  // Show error message if there's an error
-  if (error) {
-    return <div>Error: {error}</div>;
   }
 
   // Safely access nested data
