@@ -9,6 +9,12 @@ import RestaurantMenu from './components/RestaurantMenu';
 import Grocery from './components/Grocery';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+//Chunking
+//Code Splitting
+//Dynamic Bundling
+//On Demand Loading
+//Lazy Loading
+
 const appRouter = createBrowserRouter(
   [
     {
