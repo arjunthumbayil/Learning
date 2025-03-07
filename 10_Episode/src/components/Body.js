@@ -39,7 +39,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter flex justify-between items-center m-4 p-5">
+      <div className="flex justify-between items-center m-4 p-5">
         {/* Left Side: Input, Search, Reset */}
         <div className=" flex items-center space-x-4">
           <input
@@ -92,7 +92,7 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filteredRestaurants.map((restaurant) => (
           <Link
             to={'/restaurant/' + restaurant.info.id}
