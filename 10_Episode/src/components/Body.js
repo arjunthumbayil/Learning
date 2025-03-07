@@ -40,14 +40,15 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
-        <div className="search">
+        <div className=" m-4 p-5">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
           <button
+            className="px-4 py-2 bg-green-100 m-4"
             onClick={() => {
               const filtered = allRestaurants.filter((restaurant) =>
                 restaurant.info.name
@@ -60,7 +61,7 @@ const Body = () => {
             Search
           </button>
           <button
-            className="filter-btn"
+            className="px-4 py-2 bg-green-100 m-4"
             onClick={() => {
               setFilteredRestaurants(allRestaurants);
               setSearchText('');
@@ -72,7 +73,7 @@ const Body = () => {
 
         <div>
           <button
-            className="filter-btn"
+            className="className=px-4 py-2 bg-green-100 m-4"
             onClick={() => {
               const filtered = allRestaurants.filter(
                 (res) => res.info.avgRating > 4.3
