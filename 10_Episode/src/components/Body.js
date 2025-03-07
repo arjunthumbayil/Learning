@@ -39,16 +39,17 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className=" m-4 p-5">
+      <div className="filter flex justify-between items-center m-4 p-5">
+        {/* Left Side: Input, Search, Reset */}
+        <div className=" flex items-center space-x-4">
           <input
             type="text"
-            className="border border-solid border-black"
+            className="border border-solid border-black rounded-lg px-3 py-2"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
           <button
-            className="px-4 py-2 bg-green-100 m-4"
+            className="px-4 py-2 bg-blue-300 rounded-lg hover:bg-blue-400 transition-colors"
             onClick={() => {
               const filtered = allRestaurants.filter((restaurant) =>
                 restaurant.info.name
@@ -57,29 +58,34 @@ const Body = () => {
               );
               setFilteredRestaurants(filtered);
             }}
+            aria-label="Search"
           >
             Search
           </button>
           <button
-            className="px-4 py-2 bg-green-100 m-4"
+            className="px-4 py-2 bg-blue-300 rounded-lg hover:bg-blue-400 transition-colors"
             onClick={() => {
               setFilteredRestaurants(allRestaurants);
               setSearchText('');
             }}
+            aria-label="Reset"
           >
             Reset
           </button>
         </div>
 
-        <div>
+        {/* Right Side: Top Rated Restaurant Button */}
+
+        <div className="flex items-center">
           <button
-            className="className=px-4 py-2 bg-green-100 m-4"
+            className="px-4 py-2 bg-blue-300 rounded-lg hover:bg-blue-400 transition-colors"
             onClick={() => {
               const filtered = allRestaurants.filter(
                 (res) => res.info.avgRating > 4.3
               );
               setFilteredRestaurants(filtered);
             }}
+            aria-label="Top Rated Restaurant"
           >
             Top Rated Restaurant
           </button>
