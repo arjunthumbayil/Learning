@@ -13,10 +13,7 @@ const RestrauntCard = (props) => {
     sla,
   } = resData?.info;
   return (
-    <div
-      className="m-4 p-4 w-[220px] rounded-sm"
-      style={{ backgroundColor: '#f0f0f0' }}
-    >
+    <div className="m-4 p-4 w-[220px]  rounded-lg  bg-gray-100 hover:bg-gray-300 transition-colors">
       <img
         className="rounded-lg"
         alt="res-logo"
